@@ -1,8 +1,39 @@
-language: cpp
 sudo: required
 
-before_script: mkdir build && cd build
+language: cpp
+
+sudo: false
+
+addons:
+  apt:
+    sources:
+      - llvm-toolchain-precise-3.7
+      - ubuntu-toolchain-r-test
+      - george-edison55-precise-backports
+    packages:
+      - clang-3.7
+      - g++-5
+      - gcc-5
+      - cmake
+      - cmake-data
+
+install:
+  - if [ "$TRAVIS_OS_NAME" = "osx" ]; then brew update ; brew install llvm ; brew outdated gcc || brew upgrade gcc ; brew outdated cmake || brew upgrade cmake ; fi
+  - if [ "$TRAVIS_OS_NAME" = "linux" -a "$CXX" = "g++" ]; then export CXX="g++-5" CC="gcc-5"; fi
+  - if [ "$TRAVIS_OS_NAME" = "linux" -a "$CXX" = "clang++" ]; then export CXX="clang++-3.7" CC="clang-3.7"; fi
+  - mkdir build
+
+before_script:
+  - cd build; cmake ..
  
 script:
-- cmake ..
-- make LearnCMake_Test
+- make all
+- ./test/LearnCMake_Test
+
+compiler:
+  - clang
+  - gcc
+
+os:
+  - linux
+  - osx
