@@ -15,12 +15,11 @@ addons:
 install:
   - DEPS_DIR="${TRAVIS_BUILD_DIR}/deps"
   - mkdir ${DEPS_DIR} && cd ${DEPS_DIR}
-  #- echo "f3546812c11ce7f5d64dc132a566b749 *cmake-3.3.2-Linux-x86_64.tar.gz" > cmake_md5.txt
   - travis_retry wget --no-check-certificate https://cmake.org/files/v3.3/cmake-3.3.2-Linux-x86_64.tar.gz
   - tar -xvf cmake-3.3.2-Linux-x86_64.tar.gz > /dev/null
   - mv cmake-3.3.2-Linux-x86_64 cmake-install
   - if [ "$TRAVIS_OS_NAME" = "linux" ]; then PATH=${DEPS_DIR}/cmake-install:${DEPS_DIR}/cmake-install/bin:$PATH; fi
-  - which cmake
+  #- which cmake
   
   - if [ "$TRAVIS_OS_NAME" = "osx" ]; then brew update; brew install llvm; brew outdated gcc || brew upgrade gcc; brew outdated cmake || brew upgrade cmake;fi 
   - if [ "$TRAVIS_OS_NAME" = "linux" -a "$CXX" = "g++" ]; then export CXX="g++-5" CC="gcc-5"; fi
