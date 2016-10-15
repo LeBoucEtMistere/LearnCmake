@@ -19,8 +19,8 @@ addons:
 
 install:
 
-  - DEPS_DIR="${TRAVIS_BUILD_DIR}/deps";
-  - mkdir ${DEPS_DIR} && cd ${DEPS_DIR};
+  - DEPS_DIR="${TRAVIS_BUILD_DIR}/deps"
+  - mkdir ${DEPS_DIR} && cd ${DEPS_DIR}
   
   - if [ "$TRAVIS_OS_NAME" = "osx" ]; then
       brew update;
