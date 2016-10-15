@@ -21,10 +21,10 @@ install:
 
   
   - if [ "$TRAVIS_OS_NAME" = "osx" ]; then
-      brew update
-      brew install llvm
-      brew outdated gcc || brew upgrade gcc
-      brew outdated cmake || brew upgrade cmake
+      brew update;
+      brew install llvm;
+      brew outdated gcc || brew upgrade gcc;
+      brew outdated cmake || brew upgrade cmake;
     fi
 
   - if [ "$TRAVIS_OS_NAME" = "linux"]; then
