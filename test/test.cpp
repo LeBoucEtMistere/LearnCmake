@@ -6,5 +6,5 @@
 TEST_CASE( "SQRT are computed", "SQRT" ) {
     REQUIRE( sqr(1) == 1 );
     REQUIRE( sqr(4) == 16 );
-    REQUIRE( sqr(3) == 10 );
+    REQUIRE( sqr(3) == 9 );
 }
