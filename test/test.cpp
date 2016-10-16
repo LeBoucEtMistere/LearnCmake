@@ -3,7 +3,7 @@
 
 #include "sqr.h"
 
-TEST_CASE( "SQRT are computed", "SQRT" ) {
+TEST_CASE( "SQR are computed", "SQR" ) {
     REQUIRE( sqr(1) == 1 );
     REQUIRE( sqr(4) == 16 );
     REQUIRE( sqr(3) == 9 );
